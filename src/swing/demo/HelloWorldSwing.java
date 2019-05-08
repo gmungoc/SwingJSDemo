@@ -1,4 +1,4 @@
-package demo;
+package swing.demo;
 import java.awt.Color;
 import java.awt.Container;
 /*
@@ -43,12 +43,25 @@ import java.util.Random;
  * and modified
  */
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;        
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;        
 
 public class HelloWorldSwing 
 {
 	private Random rand = new Random();
+
+	public static void main(String[] args) 
+    {
+        SwingUtilities.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
+                new HelloWorldSwing().createAndShowGUI();
+            }
+        });
+    }
 	
     /**
      * Create the GUI and show it.  For thread safety,
@@ -62,8 +75,72 @@ public class HelloWorldSwing
 
         Container contentPane = frame.getContentPane();
         contentPane.setLayout(new FlowLayout());
-		contentPane.add(new JLabel("Hello World"));
+        contentPane.setPreferredSize(new Dimension(300, 250));
+
+        contentPane.add(new JLabel("Hello World"));
+		contentPane.add(makeClickMeButton());
+		JLabel choice = new JLabel("Make a selection");
+		JComboBox<String> choices = makeChoiceList(choice);
+		contentPane.add(choices);
+		contentPane.add(choice);
+		contentPane.add(makeQuitButton(frame));
 		
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    /**
+     * Makes a combo box that writes the selected value to the given label
+     * 
+     * @param choice
+     * @return
+     */
+    private JComboBox<String> makeChoiceList(JLabel choice) 
+    {
+    	JComboBox<String> combo = new JComboBox<>();
+    	combo.addItem("Cream");
+    	combo.addItem("Custard");
+    	combo.addItem("Yoghurt");
+    	combo.addActionListener(new ActionListener() 
+    	{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				choice.setText("You chose " + combo.getSelectedItem());
+				choice.repaint();
+			}
+    		
+    	});
+    	return combo;
+	}
+
+	/**
+     * Makes a button that Quits the application when clicked
+     * 
+     * @param frame
+     * @return
+     */
+	JButton makeQuitButton(JFrame frame) 
+	{
+		JButton quit = new JButton("Quit");
+		quit.addActionListener(new ActionListener() 
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				frame.dispose();
+			}
+		});
+		return quit;
+	}
+
+	/**
+	 * Makes a button that changes colour when clicked
+	 * 
+	 * @return
+	 */
+	JButton makeClickMeButton() 
+	{
 		JButton hello = new JButton("Click me!");
 		hello.setOpaque(true);
 		hello.addActionListener(new ActionListener() 
@@ -76,23 +153,8 @@ public class HelloWorldSwing
 				hello.repaint();
 			}
 		});
-		
-		JButton quit = new JButton("Quit");
-		quit.addActionListener(new ActionListener() 
-		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				frame.dispose();
-			}
-		});
-		contentPane.add(hello);
-		contentPane.add(quit);
-        contentPane.setPreferredSize(new Dimension(400, 350));
-
-        frame.pack();
-        frame.setVisible(true);
-    }
+		return hello;
+	}
 
     /**
      * Makes a pseudo-random colour
@@ -103,17 +165,4 @@ public class HelloWorldSwing
     {
     	return new Color(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
 	}
-
-	public static void main(String[] args) 
-    {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() 
-        {
-            public void run() 
-            {
-                new HelloWorldSwing().createAndShowGUI();
-            }
-        });
-    }
 }
