@@ -8,13 +8,13 @@ Code for Bioinformatics short workshop, Dundee 31st May 2019
 *   Eclipse for Java, version 4.8 or later 
 
 ### Instructions
-To run as Java:
+Run as Java:
 1.  clone this repository `(https://github.com/gmungoc/SwingJSDemo.git)`
 2.  import into Eclipse as a Java project
 3.  Configure to run with JRE 1.8 or later
-4.  run class `HelloWorldSwing.java` as a Java application and explore it
+4.  run class `HelloWorld.java` as a Java application and explore its (very simple) functionality
 
-To translate from Swing to Javascript:
+Translate ('transpile') from Swing to Javascript:
 1.  run `build-site.xml` as an Ant task - this unzips `swingjs/SwingJS-site.zip` to `/site`
 2.  refresh the workspace - you should now see a new folder `site` 
 3.  copy file `swingjs\net.sf.j2s.core.jar` to the Eclipse dropins installation folder
@@ -23,8 +23,15 @@ To translate from Swing to Javascript:
     * Linux: tbc
 4.  Restart Eclipse to pick up the plugin Compiler Participant
 5.  Select `Project | Clean...` to recompile the code
-    * note file .j2s is needed to enable JavaToScript 'transpilation'
-6.  Refresh project: you should now see a file `site/swing_demo_HelloWorldSwing.html`
-7.  Open this file in a browser (e.g. double-click, or right-click Open With | System Editor)
-8.  You should now be able to see the 'application' running as Javascript
-9.  Experiment with changes to the Java code; they should recompile and transpile, reload the web page to see the changes 
+    * notice file .j2s - this is needed to enable JavaToScript 'transpilation'
+6.  Refresh project: you should now see a file `site/swing_demo_HelloWorld.html`
+    * the transpiler generates an html launch page for each runnable Java class
+7.  Open this file in a browser (e.g. browse to file, double-click, or right-click and Open With | System Editor)
+8.  You should now be able to see the code running as Javascript
+9.  Try making a change to the Java code; it should recompile (as Java) and transpile (to HelloWorld.js)
+10. Reload the web page to see the changes
+11. Add a main method to `HelloWorld2`, consisting of `new HelloWorld2().display()`, and run it
+    * experiment with dragging the mouse, with or without the Shift key pressed
+12. A second `.html` file should have been generated, for `HelloWorld2`. Try this in the browser. This demonstrates drawing on a SwingJS Graphics context.
+
+SwingJS is currently maintained at [https://github.com/BobHanson/java2script](https://github.com/BobHanson/java2script), a fork of [https://github.com/java2script/java2script](https://github.com/java2script/java2script).

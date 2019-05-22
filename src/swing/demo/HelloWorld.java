@@ -48,7 +48,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;        
 
-public class HelloWorldSwing 
+public class HelloWorld 
 {
 	private Random rand = new Random();
 
@@ -58,7 +58,7 @@ public class HelloWorldSwing
         {
             public void run() 
             {
-                new HelloWorldSwing().createAndShowGUI();
+                new HelloWorld().createAndShowGUI();
             }
         });
     }
