@@ -31,6 +31,7 @@ Translate ('transpile') from Swing to Javascript:
 9.  Try making a change to the Java code; it should recompile (as Java) and transpile (to HelloWorld.js)
 10. Reload the web page to see the changes
 11. Add a main method to `HelloWorld2`, consisting of `new HelloWorld2().display()`, and run it
+    * tip: type ma then Ctrl-space for the main method template
     * experiment with dragging the mouse, with or without the Shift key pressed
 12. A second `.html` file should have been generated, for `HelloWorld2`. Try this in the browser. This demonstrates drawing on a SwingJS Graphics context.
 
