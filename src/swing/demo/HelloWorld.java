@@ -33,6 +33,7 @@ import java.awt.Container;
  */ 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -50,6 +51,8 @@ import javax.swing.SwingUtilities;
 
 public class HelloWorld 
 {
+	private static final Font font = new Font("Arial", Font.PLAIN, 14);
+	
 	private Random rand = new Random();
 
 	public static void main(String[] args) 
@@ -72,14 +75,18 @@ public class HelloWorld
     {
         JFrame frame = new JFrame("HelloWorldSwing");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setBounds(600, 400, 190, 240);
 
         Container contentPane = frame.getContentPane();
         contentPane.setLayout(new FlowLayout());
-        contentPane.setPreferredSize(new Dimension(300, 250));
+        contentPane.setPreferredSize(new Dimension(180, 220));
 
-        contentPane.add(new JLabel("Hello World"));
+        JLabel hello = new JLabel("Hello, World");
+        hello.setFont(font);
+		contentPane.add(hello);
 		contentPane.add(makeClickMeButton());
 		JLabel choice = new JLabel("Make a selection");
+		choice.setFont(font);
 		JComboBox<String> choices = makeChoiceList(choice);
 		contentPane.add(choices);
 		contentPane.add(choice);
