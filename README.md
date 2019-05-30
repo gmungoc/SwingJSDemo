@@ -1,5 +1,5 @@
 # SwingJSDemo
-Code for Bioinformatics short workshop, Dundee 31st May 2019
+Code for Bioinformatics short workshop, University of Dundee, 31st May 2019
 
 #### Goals
 *   To give a flavour of cross-compilation of Java Swing to Javascript in action 
