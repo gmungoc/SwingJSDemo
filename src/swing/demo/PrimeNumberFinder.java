@@ -37,7 +37,7 @@ public class PrimeNumberFinder
 		BitSet found = new BitSet();
 		System.out.println("2");
 		int next = 3;
-		while (next < max)
+		while (next <= max)
 		{
 			if (isPrime(next, found)) 
 			{
