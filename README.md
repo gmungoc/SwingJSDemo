@@ -19,6 +19,7 @@ To translate ('transpile') from Swing to Javascript:
 2.  Refresh the workspace - you should now see a new folder `site` 
 3.  Copy file `swingjs\net.sf.j2s.core.jar` to the `dropins` subfolder of your Eclipse installation
 4.  Restart Eclipse to pick up the 'Compiler Participant' plugin
+    * if this doesn't work first time, you may need to restart Eclipse with the `-clean` flag (once only)
 5.  Select `Project | Clean...` to recompile the code
     * notice file `.j2s` - this is needed to enable JavaToScript 'transpilation'
 6.  Refresh project: you should now see a file `site/swing_demo_HelloWorld.html`
