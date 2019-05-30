@@ -35,6 +35,6 @@ To translate ('transpile') from Swing to Javascript:
 13. Transpilation is not just for GUI applications!
     * run PrimeNumberFinder (as Java)
     * run PrimeNumberFinder (as html/Javascript)
-    * to fix the error (pass in an argument): add `args: "100"` to the `Info` block of the html
+    * to fix the error (pass in an argument): add `args: "100",` to the `Info` block of the html
 
 SwingJS is currently maintained at [https://github.com/BobHanson/java2script](https://github.com/BobHanson/java2script), a fork of [https://github.com/java2script/java2script](https://github.com/java2script/java2script).
