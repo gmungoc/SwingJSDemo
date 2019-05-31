@@ -6,6 +6,7 @@ Code for Bioinformatics short workshop, University of Dundee, 31st May 2019
 
 #### Pre-requisites
 *   Eclipse for Java, version 4.8 or later
+*   git installed (or Eclipse git plugin)
 *   Java 8 or later 
 
 ### Instructions
